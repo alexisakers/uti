@@ -4,7 +4,7 @@ import Foundation
  * The commands that can be executed by the app.
  */
 
-enum Command {
+public enum Command {
 
     /// A command to print the help.
     case printHelp
@@ -21,7 +21,7 @@ enum Command {
  * The name of the supported commands.
  */
 
-enum CommandType: String {
+public enum CommandType: String {
     case getUTI = "get"
     case checkConformance = "conforms"
     case usage = "help"
@@ -29,7 +29,7 @@ enum CommandType: String {
     static let all: [CommandType] = [.getUTI, .checkConformance, .usage]
 
     /// The description of what the command does.
-    var description: String {
+    public var description: String {
         switch self {
         case .getUTI:
             return "Get the Uniform Type Identifier of a file."
@@ -41,7 +41,7 @@ enum CommandType: String {
     }
 
     /// A description
-    var usage: String {
+    public var usage: String {
         switch self {
         case .getUTI:
             return "uti get <file URL>"
@@ -53,7 +53,7 @@ enum CommandType: String {
     }
 
     /// The example usage of the command.
-    var exampleUsage: String? {
+    public var exampleUsage: String? {
         switch self {
         case .getUTI:
             return "uti get ~/Desktop"
@@ -69,12 +69,12 @@ enum CommandType: String {
  * Errors that can occur when parsing the 
  */
 
-enum CommandParserError: LocalizedError {
+public enum CommandParserError: LocalizedError {
     case missingCommandName
     case unknownCommand(String)
     case invalidUsage(CommandType)
 
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .missingCommandName, .invalidUsage:
             return nil
@@ -93,7 +93,7 @@ extension Array where Element == String {
      * - returns: The command, and the error that prevented a command from being detected.
      */
 
-    func parseCommand() -> Result<Command> {
+    public func parseCommand() -> Result<Command> {
         do {
             let command = try _parseCommand()
             return .success(command)

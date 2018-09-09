@@ -4,13 +4,13 @@ import Foundation
  * Errors that can occur when handling URLs.
  */
 
-enum URLError: LocalizedError {
+public enum URLError: LocalizedError {
     case realPathNotFound(String)
     case fileNotFound(String)
     case resourcesUnavailable(Error)
     case noUTI
 
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .realPathNotFound(let path):
             return "The relative path '\(path)' could not be expanded. Please check the syntax."
@@ -34,7 +34,7 @@ extension URL {
      * `URLError.fileNotFound` if the file could not be found.
      */
 
-    init(relativeFilePath path: String) throws {
+    public init(relativeFilePath path: String) throws {
         let relativeFilePath = (path as NSString).expandingTildeInPath
 
         guard let realPath = realpath(relativeFilePath, nil) else {
@@ -58,7 +58,7 @@ extension URL {
      * - returns: The UTI that describes the resource file.
      */
 
-    func fetchTypeIdentifier() throws -> String {
+    public func fetchTypeIdentifier() throws -> String {
         var uti: String?
 
         do {

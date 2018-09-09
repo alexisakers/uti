@@ -5,13 +5,13 @@ import CoreServices
  * Represents a runnable item of work.
  */
 
-class Script {
+public class Script {
 
     /// The command to execute.
-    let command: Command
+    public let command: Command
 
     /// The console used to output messages.
-    let console: Console
+    public let console: Console
 
     /**
      * Creates a new script that runs the specified command and outputs to the given console.
@@ -19,7 +19,7 @@ class Script {
      * - parameter console: The console where success and error messages should be printed.
      */
 
-    init(command: Command, console: Console) {
+    public init(command: Command, console: Console) {
         self.command = command
         self.console = console
     }
@@ -33,7 +33,7 @@ class Script {
      * - parameter
      */
 
-    static func main(arguments: [String], console: Console) {
+    public static func main(arguments: [String], console: Console) {
         // 1) Parse Arguments
         switch arguments.parseCommand() {
         case .success(let command):
@@ -63,7 +63,7 @@ class Script {
      * Runs the script and outputs errors to the console.
      */
 
-    func run() {
+    public func run() {
         do {
             try execute()
         } catch {

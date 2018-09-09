@@ -8,7 +8,13 @@ let package = Package(
     ],
     targets: [
         .target(
+            name: "TypeKit",
+            dependencies: []),
+        .target(
             name: "uti",
-            dependencies: [])
+            dependencies: ["TypeKit"]),
+        .testTarget(
+            name: "TypeKitTests",
+            dependencies: ["TypeKit"])
     ]
 )
