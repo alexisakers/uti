@@ -13,18 +13,15 @@ import Foundation
  * Errors that can occur when handling URLs.
  */
 
-public enum URLError: LocalizedError {
-    case realPathNotFound(String)
+public enum URLTypeError: LocalizedError, Equatable {
     case fileNotFound(String)
-    case resourcesUnavailable(Error)
+    case resourcesUnavailable(NSError)
     case noUTI
 
     public var errorDescription: String? {
         switch self {
-        case .realPathNotFound(let path):
-            return "The relative path '\(path)' could not be expanded. Please check the syntax."
         case .fileNotFound(let path):
-            return "The file at path '\(path)' does not exist."
+            return "Cannot find item at path '\(path)'."
         case .resourcesUnavailable(let error):
             return "The attributes of the file could not be read because of an error. (\(error))"
         case .noUTI:
@@ -47,15 +44,10 @@ extension URL {
         let relativeFilePath = (path as NSString).expandingTildeInPath
 
         guard let realPath = realpath(relativeFilePath, nil) else {
-            throw URLError.realPathNotFound(relativeFilePath)
+            throw URLTypeError.fileNotFound(relativeFilePath)
         }
 
         let filePath = String(cString: realPath)
-
-        guard FileManager.default.fileExists(atPath: filePath) else {
-            throw URLError.fileNotFound(filePath)
-        }
-
         self.init(fileURLWithPath: filePath)
     }
 
@@ -74,11 +66,11 @@ extension URL {
             let resources = try resourceValues(forKeys: [.typeIdentifierKey])
             uti = resources.typeIdentifier
         } catch {
-            throw URLError.resourcesUnavailable(error)
+            throw URLTypeError.resourcesUnavailable(error as NSError)
         }
 
         guard let typeIdentifier = uti else {
-            throw URLError.noUTI
+            throw URLTypeError.noUTI
         }
 
         return typeIdentifier
