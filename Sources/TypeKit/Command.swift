@@ -4,7 +4,7 @@ import Foundation
  * The commands that can be executed by the app.
  */
 
-public enum Command {
+public enum Command: Equatable {
 
     /// A command to print the help.
     case printHelp
@@ -69,7 +69,7 @@ public enum CommandType: String {
  * Errors that can occur when parsing the 
  */
 
-public enum CommandParserError: LocalizedError {
+public enum CommandParserError: LocalizedError, Equatable {
     case missingCommandName
     case unknownCommand(String)
     case invalidUsage(CommandType)
@@ -95,15 +95,15 @@ extension Array where Element == String {
 
     public func parseCommand() -> Result<Command> {
         do {
-            let command = try _parseCommand()
+            let command = try rawParseCommand()
             return .success(command)
         } catch {
             return .error(error)
         }
     }
 
-    private func _parseCommand() throws -> Command {
-        guard count > 2 else {
+    func rawParseCommand() throws -> Command {
+        guard count >= 2 else {
             throw CommandParserError.missingCommandName
         }
 
