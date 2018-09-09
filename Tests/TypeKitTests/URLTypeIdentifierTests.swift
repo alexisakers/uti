@@ -1,5 +1,5 @@
 //
-//  main
+//  URLTypeIdentifierTests
 //
 //  This file is part of the uti project.
 //  Copyright (c) 2018 - present Alexis Aubry and the uti authors.
@@ -8,7 +8,3 @@
 //
 
 import Foundation
-import TypeKit
-
-let console = Terminal()
-Script.main(arguments: CommandLine.arguments, console: console)

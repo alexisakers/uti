@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		557A3784214541DC004EAE3B /* XCTAssert+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557A3783214541DB004EAE3B /* XCTAssert+Result.swift */; };
+		557A3786214556C1004EAE3B /* URLTypeIdentifierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557A3785214556C1004EAE3B /* URLTypeIdentifierTests.swift */; };
 		OBJ_29 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Command.swift */; };
 		OBJ_30 /* ConsoleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* ConsoleProtocol.swift */; };
 		OBJ_31 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Result.swift */; };
@@ -61,6 +62,7 @@
 
 /* Begin PBXFileReference section */
 		557A3783214541DB004EAE3B /* XCTAssert+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTAssert+Result.swift"; sourceTree = "<group>"; };
+		557A3785214556C1004EAE3B /* URLTypeIdentifierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLTypeIdentifierTests.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
 		OBJ_12 /* ConsoleProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleProtocol.swift; sourceTree = "<group>"; };
 		OBJ_13 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 				OBJ_19 /* MockConsole.swift */,
 				557A3783214541DB004EAE3B /* XCTAssert+Result.swift */,
 				OBJ_18 /* CommandParserTests.swift */,
+				557A3785214556C1004EAE3B /* URLTypeIdentifierTests.swift */,
 			);
 			name = TypeKitTests;
 			path = Tests/TypeKitTests;
@@ -288,6 +291,7 @@
 			files = (
 				OBJ_40 /* CommandParserTests.swift in Sources */,
 				557A3784214541DC004EAE3B /* XCTAssert+Result.swift in Sources */,
+				557A3786214556C1004EAE3B /* URLTypeIdentifierTests.swift in Sources */,
 				OBJ_41 /* MockConsole.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
