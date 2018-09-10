@@ -50,4 +50,4 @@ The utility was built as a Swift package. It is composed of two targets: the fra
 ### Requirements
 
 - To develop `uti`, you will need **Swift 4.1**.
-- Please make sure to read the `[Contribution Guide](CONTRIBUTING.md)` before contributing
+- Please make sure to read the [Contribution Guide](CONTRIBUTING.md) before contributing
