@@ -8,6 +8,7 @@ before_deploy:
 - zip -j uti_release.zip ./.build/release/uti
 
 deploy:
+  skip_cleanup: true
   provider: releases
   api_key:
     secure: jSEl6QT4l7F+0Xs4j3GQlPC0TsnMguxhKprwF7STFdzP9/LqR418ld3pxyleu4jkTr/+9Ozm6qL58AMIEo/XhWnTkr/l3KrnfGd1qrHrXvDOt3r0tYBJzUnoi9JYpvbya0AyfZov9n+/NRP8PK34mZpOs/xktB/o/NErLJ3lFYPAq9817HIOu5aMat2gzsuFZ6T4x3ir+1UHNtZeR751zUQwrrhMtAC1gAIOKfTQaiMEFNdXIaVb7tMxECpQxewdT+FVCANi46zkAjlJP+hbykS+Ks8nE1WUES2yviMS2mm/DF+G/rOTcZBOK5FsKHvS4/GK2+vFJIoGOJnwyg48y4cN+Y+q7QS6j1PDJEd5OUrAArQWs5dfwkHYLgoRuX9bqdKxHctx44CDS3ddkpe1dL/wTD5gAq4seRiRCAG+/Ko81KYRU9UNtFId6/4UImm9CjUWAyq2dDKwjHwuaqh7L9rjiCVF0UQgK9L4tXQIWh8DlsTymBA+OQoRcBErkRnyGIGdBCvWAPIY+d7jOwBA8Bb2bikAm8UlVHTlmGSMdcBPXjbiEvxtGJn0O8uK8dETovFJ9HgQCniSyeagMtJqwvM7dH62wk6/yze7hLK0fnDZCRBLTnLgiXErzvgW9CG0ykd3qfhTxzIM6nm7v5x2vEXNR9rRIrcOgqpQ1KAwzs8=
