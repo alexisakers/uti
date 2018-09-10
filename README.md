@@ -40,7 +40,8 @@ To build the program for source and install it on your machine, run this in a te
 ~~~bash
 git clone https://github.com/alexaubry/uti
 cd uti
-sh build.sh
+make build
+make test
 ~~~
 
 ## Contributing
