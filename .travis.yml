@@ -1,0 +1,17 @@
+os: osx
+
+script:
+  - make test
+  - make build
+
+before_deploy:
+  - zip -j uti_release.zip ./.build/release/uti
+
+deploy:
+  provider: releases
+  api_key:
+    secure: YOUR_API_KEY_ENCRYPTED
+  file: "uti_release.zip"
+  skip_cleanup: true
+  on:
+    tags: true
